@@ -12,7 +12,7 @@ const Slider = () => {
       Changement de l'opérateur logique pour trier dans le bon sens les images
       De la plus ancienne à la plus récente
     */
-      new Date(evtA.date) > new Date(evtB.date) ? 1 : -1 
+      new Date(evtA.date) < new Date(evtB.date) ? 1 : -1 
        );
   const nextCard = () => {
     setTimeout(
