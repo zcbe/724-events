@@ -4,9 +4,9 @@ import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
-const Slider = () => {
-  const { data } = useData();
-  const [index, setIndex] = useState(0);
+const Slider = () => {  // Définition du composant Slider
+  const { data } = useData();  // Extraction des données depuis le contexte DataContext
+  const [index, setIndex] = useState(0); // Déclaration de l'état local index avec la valeur initiale 0
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     /* 
       Changement de l'opérateur logique pour trier dans le bon sens les images
@@ -24,13 +24,15 @@ const Slider = () => {
         5000
     );
   };
+    
+  // Effet pour appeler la fonction nextCard à chaque changement d'index ou au montage du composant
   useEffect(() => {
     nextCard();
   });
   return (
-    <div className="SlideCardList">   
+    <div className="SlideCardList">   {/* Conteneur de la liste de diapositives */}
       {/* Suppresion des <></> qui encapsulait 2 éléments différents */}   
-            {byDateDesc?.map((event, idx) => (
+            {byDateDesc?.map((event, idx) => ( 
            // Changement de la key pour qu'elle soit unique pour chaque slide
            <div key={event.date}>
            <div 
@@ -57,9 +59,9 @@ const Slider = () => {
                   type="radio"
                   name="radio-button"
                  /* Remplacement de idx par index pour indiquer sur quelle image on se trouve  */
-                  checked={index === radioIdx}       
+                  checked={index === radioIdx}      // Vérification si le bouton radio correspond à l'index actuel   
                 // Ajout de readOnly pour retirer erreur console
-                readOnly
+                readOnly  // Lecture seule pour éviter les erreurs de console
                 />
                 ))}
             </div>

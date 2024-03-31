@@ -15,3 +15,7 @@ export const MONTHS = {
 
 // Ajout +1 pour avoir le bon mois affiché car tableau commence à 0
 export const getMonth = (date) => MONTHS[date.getMonth() +1];
+// Définition d'une fonction getMonth qui prend une date comme argument et retourne le nom du mois correspondant en français
+// La fonction utilise la méthode getMonth() de l'objet Date pour obtenir le numéro du mois (de 0 à 11)
+// En ajoutant 1 à ce numéro, on obtient un numéro de mois de 1 à 12, correspondant aux clés de l'objet MONTHS
+// Ainsi, la fonction retourne le nom du mois correspondant à ce numéro
